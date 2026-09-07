@@ -1,0 +1,9 @@
+name: probe
+on: [push]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 numpy==1.26.4 -q
+      - run: python3 probe.py
